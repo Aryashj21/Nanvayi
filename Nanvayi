@@ -1,0 +1,39 @@
+class Queue:
+    def __init__(self):
+        self.queue = []
+
+    def enqueue(self, item):
+        self.queue.append(item)
+
+    def peek(self, i):
+        if 0 <= i < len(self.queue):
+            return self.queue[i]
+        else:
+            raise IndexError("The requested element is not in the queue")
+
+    def dequeue(self):
+        if not self.is_empty():
+            return self.queue.pop(0)
+        else:
+            raise Exception("Queue is empty")
+
+    def get_ith_item(self, i):
+        if 0 <= i < len(self.queue):
+            return self.queue[i]
+        else:
+            raise IndexError("The requested element is not in the queue")
+
+    def is_empty(self):
+        return len(self.queue) == 0
+
+    def size(self):
+        return len(self.queue)
+
+queue = Queue()
+
+queue.enqueue(10)
+queue.enqueue(20)
+queue.enqueue(30)
+
+second_item = queue.get_ith_item(1)
+print("Second element:", second_item)
